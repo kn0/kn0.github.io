@@ -42,6 +42,7 @@
 
 <!-- For all browsers -->
 <link rel="stylesheet" href="http://kn0.ninja/assets/css/main.css">
+
 <!-- Webfonts -->
 <script src="//use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
 
@@ -55,6 +56,12 @@
 
 <!-- Modernizr -->
 <script src="http://kn0.ninja/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+<!-- JQuery -->
+<script src="http://kn0.ninja/assets/js/vendor/jquery-1.11.2.min.js"></script>
+
+<!-- http://codepen.io/Supercopra/pen/LExaGR -->
+<script src="http://kn0.ninja/assets/js/plugins/fancy.js"></script>
 
 <!-- Icons -->
 <!-- 16x16 -->
@@ -73,6 +80,10 @@
 </head>
 
 <body id="post">
+
+<div style="height:100px;width:100%; background:#000">
+  <canvas id="can" style="background:#111"></canvas>
+</div>
 
 <div class="navigation-wrapper">
 	<nav role="navigation" id="site-nav" class="animated drop">
@@ -102,7 +113,7 @@
 <header class="masthead">
 	<div class="wrap">
         
-    		<a href="http://kn0.ninja/" class="site-logo" rel="home" title=""><img src="http://kn0.ninja/images/site-logo.png" width="200" height="200" alt=" logo" class="animated fadeInUp"></a>
+    		<a href="http://kn0.ninja/" class="site-logo" rel="home" title=""><img src="http://kn0.ninja/images/site-logo.png" width="200" height="200" alt=" logo" class="animated fadeInUp" span data-color='{"red":55,"green":146,"blue":203}'></a>
         
         <h1 class="site-title animated fadeIn"><a href="http://kn0.ninja/"></a></h1>
 		<h2 class="site-description animated fadeIn" itemprop="description">I know that I know nothing.</h2>
@@ -110,6 +121,7 @@
 </header><!-- /.masthead -->
 
 <div class="js-menu-screen menu-screen"></div>
+
 
 <div id="main" role="main">
   <article class="hentry">
@@ -130,12 +142,50 @@
         <span class="author vcard">By <span class="fn">Trenton Ivey</span></span>
         <span class="entry-date date published"><time datetime="2015-02-26T21:00:38-06:00"><i class="fa fa-calendar-o"></i> February 26, 2015</time></span>
         
-        
+        <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
         
         
       </footer>
       <div class="entry-content">
-        <p>I keep telling myself I need to start a blog again. It probably won’t last.</p>
+        <p>Starting a blog (again) has been on my list of to-dos for a while. This probably won’t last, but that doesn’t bother me.
+Some say, “The journey is more important than the destination”. Others say, “<a href="http://www.fluentin3months.com/fail-fast" title="Fail Fast and Fail Often">Fail fast and fail often</a>”.
+I agree with <a href="https://twitter.com/at1as" title="At1as on Twitter">At1as</a>. <a href="http://www.irongeek.com/i.php?page=videos/derbycon4/t312-grok-atlas" title="GROK talk by At1as">GROK!</a>.</p>
+
+<p>In building this site I got to play around with a few fun toys:</p>
+
+<ul>
+  <li>I decided to host this site using <a href="https://pages.github.com/" title="Github Pages">Github Pages</a>. They provide free hosting. Managing a website via <a href="https://github.com" title="GitHub">GitHub</a>) is a joy.</li>
+  <li>I decided to use <a href="http://jekyllrb.com/" title="Jekyll Website">Jekyll</a>. I love the idea of using a website generator to create a dynamic feeling site that is composed of only static pages.
+Among other things, this improves security (there is no need to worry about a back-end database or user supplied input).</li>
+  <li><a href="https://mademistakes.com/about/">Michael Rose</a> has made some beautuful themes for Jekyll. I decided to use his <a href="https://github.com/mmistakes/so-simple-theme" title="So Simple Theme by Michael Rose">So Simple Theme</a> as a starting point (I haven’t changed much yet).</li>
+  <li>I found a really cool <a href="http://codepen.io/Supercopra/pen/LExaGR">Codepen</a> created by <a href="http://codepen.io/Supercopra/" title="Supercopra Codepen Page">Supercopra</a> (aka. Julius Horn). I tweaked his code a bit to make it work as a header to the page.</li>
+</ul>
+
+
+        
+          <div id="disqus_thread"></div><!-- /#disqus_thread -->
+          
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'kn0ninja'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
         
       </div><!-- /.entry-content -->
@@ -151,7 +201,8 @@
   <footer role="contentinfo" class="entry-wrapper">
     
 
-<span>&copy; 2015 Trenton Ivey. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/" rel="nofollow">So Simple Theme</a>.</span>
+<span>&copy; 2015 Trenton Ivey. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="http://mademistakes.com/so-simple/" rel="nofollow">So Simple Theme</a>.
+Header ported from <a href="http://codepen.io/Supercopra/pen/LExaGR">work by Supercopra</a></span>
 <div class="social-icons">
 	<a href="http://twitter.com/trentonivey" title="Trenton Ivey on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
 	
@@ -164,6 +215,7 @@
 	
   <a href="http://kn0.ninja/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
 </div><!-- /.social-icons -->
+
   </footer>
 </div><!-- /.footer-wrapper -->
 

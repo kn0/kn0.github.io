@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://kn0.ninja/feed.xml" />
 <link rel="alternate" type="text/html" href="http://kn0.ninja" />
-<updated>2015-02-26T22:04:44-06:00</updated>
+<updated>2015-02-27T00:58:34-06:00</updated>
 <id>http://kn0.ninja/</id>
 <author>
   <name>Trenton Ivey</name>
@@ -27,7 +27,20 @@
     <email>Trenton.Ivey@gmail.com</email>
   </author>
   <content type="html">
-    &lt;p&gt;I keep telling myself I need to start a blog again. It probably won’t last.&lt;/p&gt;
+    &lt;p&gt;Starting a blog (again) has been on my list of to-dos for a while. This probably won’t last, but that doesn’t bother me.
+Some say, “The journey is more important than the destination”. Others say, “&lt;a href=&quot;http://www.fluentin3months.com/fail-fast&quot; title=&quot;Fail Fast and Fail Often&quot;&gt;Fail fast and fail often&lt;/a&gt;”.
+I agree with &lt;a href=&quot;https://twitter.com/at1as&quot; title=&quot;At1as on Twitter&quot;&gt;At1as&lt;/a&gt;. &lt;a href=&quot;http://www.irongeek.com/i.php?page=videos/derbycon4/t312-grok-atlas&quot; title=&quot;GROK talk by At1as&quot;&gt;GROK!&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;In building this site I got to play around with a few fun toys:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;I decided to host this site using &lt;a href=&quot;https://pages.github.com/&quot; title=&quot;Github Pages&quot;&gt;Github Pages&lt;/a&gt;. They provide free hosting. Managing a website via &lt;a href=&quot;https://github.com&quot; title=&quot;GitHub&quot;&gt;GitHub&lt;/a&gt;) is a joy.&lt;/li&gt;
+  &lt;li&gt;I decided to use &lt;a href=&quot;http://jekyllrb.com/&quot; title=&quot;Jekyll Website&quot;&gt;Jekyll&lt;/a&gt;. I love the idea of using a website generator to create a dynamic feeling site that is composed of only static pages.
+Among other things, this improves security (there is no need to worry about a back-end database or user supplied input).&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mademistakes.com/about/&quot;&gt;Michael Rose&lt;/a&gt; has made some beautuful themes for Jekyll. I decided to use his &lt;a href=&quot;https://github.com/mmistakes/so-simple-theme&quot; title=&quot;So Simple Theme by Michael Rose&quot;&gt;So Simple Theme&lt;/a&gt; as a starting point (I haven’t changed much yet).&lt;/li&gt;
+  &lt;li&gt;I found a really cool &lt;a href=&quot;http://codepen.io/Supercopra/pen/LExaGR&quot;&gt;Codepen&lt;/a&gt; created by &lt;a href=&quot;http://codepen.io/Supercopra/&quot; title=&quot;Supercopra Codepen Page&quot;&gt;Supercopra&lt;/a&gt; (aka. Julius Horn). I tweaked his code a bit to make it work as a header to the page.&lt;/li&gt;
+&lt;/ul&gt;
+
 
     &lt;p&gt;&lt;a href=&quot;http://kn0.ninja/blog/this-probably-wont-last/&quot;&gt;This Probably Won&#39;t Last&lt;/a&gt; was originally published by Trenton Ivey at &lt;a href=&quot;http://kn0.ninja&quot;&gt;&lt;/a&gt; on February 26, 2015.&lt;/p&gt;
   </content>
