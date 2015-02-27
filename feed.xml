@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://kn0.ninja/feed.xml" />
 <link rel="alternate" type="text/html" href="http://kn0.ninja" />
-<updated>2015-02-27T01:03:56-06:00</updated>
+<updated>2015-02-27T01:31:59-06:00</updated>
 <id>http://kn0.ninja/</id>
 <author>
   <name>Trenton Ivey</name>
@@ -37,7 +37,7 @@ I agree with &lt;a href=&quot;https://twitter.com/at1as&quot; title=&quot;At1as 
   &lt;li&gt;I decided to host this site using &lt;a href=&quot;https://pages.github.com/&quot; title=&quot;Github Pages&quot;&gt;Github Pages&lt;/a&gt;. They provide free hosting. Managing a website via &lt;a href=&quot;https://github.com&quot; title=&quot;GitHub&quot;&gt;GitHub&lt;/a&gt; is a joy.&lt;/li&gt;
   &lt;li&gt;I decided to use &lt;a href=&quot;http://jekyllrb.com/&quot; title=&quot;Jekyll Website&quot;&gt;Jekyll&lt;/a&gt;. I love the idea of using a website generator to create a dynamic feeling site that is composed of only static pages.
 Among other things, this improves security (there is no need to worry about a back-end database or user supplied input).&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://mademistakes.com/about/&quot;&gt;Michael Rose&lt;/a&gt; has made some beautuful themes for Jekyll. I decided to use his &lt;a href=&quot;https://github.com/mmistakes/so-simple-theme&quot; title=&quot;So Simple Theme by Michael Rose&quot;&gt;So Simple Theme&lt;/a&gt; as a starting point (I haven’t changed much yet).&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mademistakes.com/about/&quot;&gt;Michael Rose&lt;/a&gt; has made some beautiful themes for Jekyll. I decided to use his &lt;a href=&quot;https://github.com/mmistakes/so-simple-theme&quot; title=&quot;So Simple Theme by Michael Rose&quot;&gt;So Simple Theme&lt;/a&gt; as a starting point (I haven’t changed much yet).&lt;/li&gt;
   &lt;li&gt;I found a really cool &lt;a href=&quot;http://codepen.io/Supercopra/pen/LExaGR&quot;&gt;Codepen&lt;/a&gt; created by &lt;a href=&quot;http://codepen.io/Supercopra/&quot; title=&quot;Supercopra Codepen Page&quot;&gt;Supercopra&lt;/a&gt; (aka. Julius Horn). I tweaked his code a bit to make it work as a header to the page.&lt;/li&gt;
 &lt;/ul&gt;
 
