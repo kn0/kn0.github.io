@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://ninja.local/blog/this-probably-wont-last/</loc>
+    <loc>http://kn0.ninja/blog/this-probably-wont-last/</loc>
     <lastmod>2015-02-26T21:00:38-06:00</lastmod>
   </url>
   <url>
-    <loc>http://ninja.local/</loc>
-    <lastmod>2015-02-26T22:00:36-06:00</lastmod>
+    <loc>http://kn0.ninja/</loc>
+    <lastmod>2015-02-26T22:04:44-06:00</lastmod>
   </url>
   <url>
-    <loc>http://ninja.local/blog/</loc>
-    <lastmod>2015-02-26T22:00:36-06:00</lastmod>
+    <loc>http://kn0.ninja/blog/</loc>
+    <lastmod>2015-02-26T22:04:44-06:00</lastmod>
   </url>
   <url>
-    <loc>http://ninja.local/tags/</loc>
-    <lastmod>2015-02-26T22:00:36-06:00</lastmod>
+    <loc>http://kn0.ninja/tags/</loc>
+    <lastmod>2015-02-26T22:04:44-06:00</lastmod>
   </url>
   <url>
-    <loc>http://ninja.local/articles/</loc>
-    <lastmod>2015-02-26T22:00:36-06:00</lastmod>
+    <loc>http://kn0.ninja/articles/</loc>
+    <lastmod>2015-02-26T22:04:44-06:00</lastmod>
   </url>
 </urlset>
