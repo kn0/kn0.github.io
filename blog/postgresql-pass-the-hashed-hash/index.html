@@ -201,8 +201,8 @@
   </li>
   <li>The Server checks if the stored password is plaintext or hashed (the <a href="https://github.com/postgres/postgres/blob/5223ddacdc737b401ed58184e321f354bdf46686/src/backend/libpq/auth.c#L578">source</a> calls it encrypted, which makes me question their crypto prowess)
     <ul>
-      <li>If the stored value is hashed <code>P'</code>, the server gets <code>P''</code> by calculating <code>(MD5(P' + connection-salt))</code></li>
-      <li>If the stored value is plaintext <code>P</code>, the server gets <code>P''</code> by calculating <code>MD5(MD5(P + username) + connection-salt))</code></li>
+      <li>If the stored value is hashed (<code>P'</code>), the server gets <code>P''</code> by calculating <code>(MD5(P' + connection-salt))</code></li>
+      <li>If the stored value is plaintext (<code>P</code>), the server gets <code>P''</code> by calculating <code>MD5(MD5(P + username) + connection-salt))</code></li>
     </ul>
   </li>
   <li>The server then compares <code>P''</code> with <code>p''</code></li>
