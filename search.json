@@ -2,6 +2,14 @@
 
   
     {
+      "title"			: "PostgreSQL: Pass the Hashed Hash",
+      "link"			: "http://kn0.ninja/blog/postgresql-pass-the-hashed-hash/",
+      "excerpt"		: "PostgreSQL contains a unique Pash-the-Hash style vulnerability"
+    }
+  
+
+  
+    ,{
       "title"			: "This Probably Won't Last",
       "link"			: "http://kn0.ninja/blog/this-probably-wont-last/",
       "excerpt"		: ""

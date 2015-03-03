@@ -5,15 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>This Probably Won't Last &#8211; </title>
-
+<title>PostgreSQL: Pass the Hashed Hash &#8211; </title>
+<meta name="description" content="PostgreSQL contains a unique Pash-the-Hash style vulnerability">
 <meta name="keywords" content="">
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="This Probably Won't Last">
-
+<meta name="twitter:title" content="PostgreSQL: Pass the Hashed Hash">
+<meta name="twitter:description" content="PostgreSQL contains a unique Pash-the-Hash style vulnerability">
 <meta name="twitter:site" content="@trentonivey">
 <meta name="twitter:creator" content="@trentonivey">
 
@@ -23,16 +23,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="This Probably Won't Last">
-
-<meta property="og:url" content="http://kn0.ninja/blog/this-probably-wont-last/">
+<meta property="og:title" content="PostgreSQL: Pass the Hashed Hash">
+<meta property="og:description" content="PostgreSQL contains a unique Pash-the-Hash style vulnerability">
+<meta property="og:url" content="http://kn0.ninja/blog/postgresql-pass-the-hashed-hash/">
 <meta property="og:site_name" content="">
 
 
 
 
 
-<link rel="canonical" href="http://kn0.ninja/blog/this-probably-wont-last/">
+<link rel="canonical" href="http://kn0.ninja/blog/postgresql-pass-the-hashed-hash/">
 <link href="http://kn0.ninja/feed.xml" type="application/atom+xml" rel="alternate" title=" Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -130,42 +130,90 @@
       <header class="entry-header">
         <span class="entry-tags"></span>
         
-          <h1 class="entry-title">This Probably Won't Last</h1>
+          <h1 class="entry-title">PostgreSQL: Pass the Hashed Hash</h1>
         
 
         
         
         <span class="author vcard">| By <span class="fn">Trenton Ivey</span></span>
-        <span class="entry-date date published">| <time datetime="2015-02-26T21:00:38-06:00"><i class="fa fa-calendar-o"></i> February 26, 2015</time></span>
+        <span class="entry-date date published">| <time datetime="2015-03-03T13:49:10-06:00"><i class="fa fa-calendar-o"></i> March 03, 2015</time></span>
         
         | <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
         | <span class="social-share-twitter">
-  <a href="https://twitter.com/intent/tweet?hashtags=&amp;text=This%20Probably%20Won&#39;t%20Last&amp;url=http://kn0.ninja/blog/this-probably-wont-last/&amp;via=trentonivey" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i></a>
+  <a href="https://twitter.com/intent/tweet?hashtags=&amp;text=PostgreSQL:%20Pass%20the%20Hashed%20Hash&amp;url=http://kn0.ninja/blog/postgresql-pass-the-hashed-hash/&amp;via=trentonivey" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i></a>
 </span>
 <span class="social-share-facebook">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://kn0.ninja/blog/this-probably-wont-last/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://kn0.ninja/blog/postgresql-pass-the-hashed-hash/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i></a>
 </span>
 <span class="social-share-googleplus">
-  <a href="https://plus.google.com/share?url=http://kn0.ninja/blog/this-probably-wont-last/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i></a>
+  <a href="https://plus.google.com/share?url=http://kn0.ninja/blog/postgresql-pass-the-hashed-hash/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i></a>
 </span>
 <!-- /.social-share -->
 
         |
       </header>
       <div class="entry-content">
-        <p>Starting a blog (again) has been on my list of to-dos for a while. This probably won’t last, but that doesn’t bother me.
-Some say, “The journey is more important than the destination”. Others say, “<a href="http://www.fluentin3months.com/fail-fast" title="Fail Fast and Fail Often">Fail fast and fail often</a>”.
-I agree with <a href="https://twitter.com/at1as" title="At1as on Twitter">At1as</a>. <a href="http://www.irongeek.com/i.php?page=videos/derbycon4/t312-grok-atlas" title="GROK talk by At1as">GROK!</a></p>
+        <p>After <a href="https://twitter.com/tony_delagrange" title="Twitter: Tony Delagrange">a friend</a> sent me a link to a <a href="http://hashcat.net/forum/thread-4148.html" title="Hashcat Forum Thread 4148">thread</a> on the Hashcat.net forum, I spent a little time digging through the PostgreSQL source code. </p>
 
-<p>In building this site I got to play around with a few fun toys:</p>
+<blockquote>
+  <p><strong>TL;DR:</strong> Hashing the user password before sending it over the wire could be a good thing if done correctly. PostgreSQL didn’t do it correctly. This resulted in a (somewhat different) pass-the-hash style vulnerability</p>
+</blockquote>
+
+<h2 id="authentication-review">Authentication Review</h2>
+
+<p>Before looking at the PostgreSQL vulnerability, it helps to review how many other authentication mechanisms work:</p>
 
 <ul>
-  <li>I decided to host this site using <a href="https://pages.github.com/" title="Github Pages">Github Pages</a>. They provide free hosting. Managing a website via <a href="https://github.com" title="GitHub">GitHub</a> is a joy.</li>
-  <li>I decided to use <a href="http://jekyllrb.com/" title="Jekyll Website">Jekyll</a>. I love the idea of using a website generator to create a dynamic feeling site that is composed of only static pages.
-Among other things, this improves security (there is no need to worry about a back-end database or user supplied input).</li>
-  <li><a href="https://mademistakes.com/about/">Michael Rose</a> has made some beautiful themes for Jekyll. I decided to use his <a href="https://github.com/mmistakes/so-simple-theme" title="So Simple Theme by Michael Rose">So Simple Theme</a> as a starting point (I haven’t changed much yet).</li>
-  <li>I found a really cool <a href="http://codepen.io/Supercopra/pen/LExaGR">Codepen</a> created by <a href="http://codepen.io/Supercopra/" title="Supercopra Codepen Page">Supercopra</a> (aka. Julius Horn). I tweaked his code a bit to make it work as a header to the page.</li>
+  <li>The username and password is sent to a server over some secure channel (e.g. via a post parameter in HTTPS)</li>
+  <li>The server then hashes the password (we will use p to represent passwords from here on out). p’ = hash(p);</li>
+  <li>The server then compares the p’ with a stored value P’</li>
+  <li>If they match, “come on in”. Otherwise, “get out of here”</li>
 </ul>
+
+<p>In these cases, the ‘cleartext’ password is sent to the server for authentication (hopefully over an encrypted channel).</p>
+
+<h2 id="postgresql-authentication">PostgreSQL Authentication</h2>
+
+<p>PostgreSQL tried to avoid sending user passwords to the server by doing things a bit differently (at least in the MD5 authentication mode). When the PostgreSQL client <a href="https://github.com/postgres/postgres/blob/5223ddacdc737b401ed58184e321f354bdf46686/src/interfaces/libpq/fe-auth.c#L493-L547">sends a user password</a> (p) during authentication it:</p>
+
+<ol>
+  <li>Calculates <code>p' = MD5(p + user)</code></li>
+  <li>Calculates <code>p'' = MD5(p' + connection-salt[^connection-salt])</code></li>
+  <li>Sends <code>'MD5' + p''</code> to the server</li>
+</ol>
+
+<p>I think there were good intentions behind step #2. The goal was to prevent the user’s password from going over the wire in the clear if the transmission was unencrypted. Anyone who captures the hash on the wire would have to crack <code>p''</code> and then <code>p'</code> before they could use the user’s password elsewhere (assuming it was reused). Because these hashes are salted with a username and then a unique salt per connection, this should be difficult.</p>
+
+<h2 id="pass-the-hashed-hash">Pass the Hashed Hash</h2>
+
+<p>Looking at the <a href="https://github.com/postgres/postgres/blob/5223ddacdc737b401ed58184e321f354bdf46686/src/backend/libpq/crypt.c">source</a>, the server side does a few things when authenticating a user (the following is a bit of an oversimplification):</p>
+
+<ul>
+  <li>The server checks to see if the authentication method used was MD5 or plain:
+    <ul>
+      <li>If plain authentication (<code>p</code>) was used, the server calculates <code>p''</code> with <code>MD5(MD5(p + username) + connection-salt)</code></li>
+      <li>If MD5 authentication (<code>p''</code>) was used, the server doesn’t do anything
+        <ul>
+          <li><strong>note that the server has no way of knowing if the client generated <code>p''</code> from <code>p'</code> or from <code>p</code></strong></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>The Server checks if the stored password is plaintext or hashed (the <a href="https://github.com/postgres/postgres/blob/5223ddacdc737b401ed58184e321f354bdf46686/src/backend/libpq/auth.c#L578">source</a> calls it encrypted, which makes me question their crypto prowess)
+    <ul>
+      <li>If the stored value is hashed <code>P'</code>, the server gets <code>P''</code> by calculating <code>(MD5(P' + connection-salt))</code></li>
+      <li>If the stored value is plaintext <code>P</code>, the server gets <code>P''</code> by calculating <code>MD5(MD5(P + username) + connection-salt))</code></li>
+    </ul>
+  </li>
+  <li>The server then compares <code>P''</code> with <code>p''</code></li>
+  <li>If they match, “come on in”. Otherwise, “get out of here”</li>
+</ul>
+
+<p>The researchers at Hashcat found that you could skip step #1 in the client if you knew <code>p'</code>. You could just calculate and send  <code>p'' = MD5(p' + connection-salt)</code>. Authentication still works!</p>
+
+<p>It is important to note that capturing the hash over the wire (<code>p''</code>) cannot directly be used in a pass-the-hash style attack due to the random connection-salt.
+However, it may be possible to keep connecting to the server over and over again until the salt that the PostgreSQL server provides is the same as the one used to create the captured hash.
+Even with a <a href="https://github.com/postgres/postgres/blob/5223ddacdc737b401ed58184e321f354bdf46686/src/backend/postmaster/postmaster.c#L4941-L4962">small salt</a> (255^4) this would be a difficult attack.</p>
 
 
         
@@ -198,8 +246,8 @@ Among other things, this improves security (there is no need to worry about a ba
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
+        <a href="http://kn0.ninja/blog/this-probably-wont-last/" class="btn" title="This Probably Won't Last">Previous</a>
       
-        <a href="http://kn0.ninja/blog/postgresql-pass-the-hashed-hash/" class="btn" title="PostgreSQL: Pass the Hashed Hash">Next</a>
       
     </nav><!-- /.pagination -->
   </article>
