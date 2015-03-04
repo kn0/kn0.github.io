@@ -178,7 +178,7 @@
 
 <ol>
   <li>Calculates <code>p' = MD5(p + user)</code></li>
-  <li>Calculates <code>p'' = MD5(p' + connection-salt[^connection-salt])</code></li>
+  <li>Calculates <code>p'' = MD5(p' + connection-salt[^1])</code></li>
   <li>Sends <code>'MD5' + p''</code> to the server</li>
 </ol>
 
