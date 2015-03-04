@@ -178,7 +178,7 @@
 
 <ol>
   <li>Calculates <code>p' = MD5(p + user)</code></li>
-  <li>Calculates <code>p'' = MD5(p' + connection-salt[^1])</code></li>
+  <li>Calculates <code>p'' = MD5(p' + connection-salt)</code><sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup></li>
   <li>Sends <code>'MD5' + p''</code> to the server</li>
 </ol>
 
@@ -215,6 +215,13 @@
 However, it may be possible to keep connecting to the server over and over again until the salt that the PostgreSQL server provides is the same as the one used to create the captured hash.
 Even with a <a href="https://github.com/postgres/postgres/blob/5223ddacdc737b401ed58184e321f354bdf46686/src/backend/postmaster/postmaster.c#L4941-L4962">small salt</a> (255^4) this would be a difficult attack.</p>
 
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>From what I could tell, the connection salt is only a 4 digit number….SUPER STRONG!!!!! (/s). This is known by both parties after the connection is established (pre-auth). <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
