@@ -4,7 +4,7 @@
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://kn0.ninja/feed.xml" />
 <link rel="alternate" type="text/html" href="http://kn0.ninja" />
-<updated>2015-03-03T22:44:50-06:00</updated>
+<updated>2015-03-03T22:48:05-06:00</updated>
 <id>http://kn0.ninja/</id>
 <author>
   <name>Trenton Ivey</name>
@@ -52,7 +52,7 @@
 
 &lt;ol&gt;
   &lt;li&gt;Calculates &lt;code&gt;p&#39; = MD5(p + user)&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Calculates &lt;code&gt;p&#39;&#39; = MD5(p&#39; + connection-salt)&lt;/code&gt;&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+  &lt;li&gt;Calculates &lt;code&gt;p&#39;&#39; = MD5(p&#39; + connection-salt)&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;Sends &lt;code&gt;&#39;MD5&#39; + p&#39;&#39;&lt;/code&gt; to the server&lt;/li&gt;
 &lt;/ol&gt;
 
@@ -89,13 +89,6 @@
 However, it may be possible to keep connecting to the server over and over again until the salt that the PostgreSQL server provides is the same as the one used to create the captured hash.
 Even with a &lt;a href=&quot;https://github.com/postgres/postgres/blob/5223ddacdc737b401ed58184e321f354bdf46686/src/backend/postmaster/postmaster.c#L4941-L4962&quot;&gt;small salt&lt;/a&gt; (255^4) this would be a difficult attack.&lt;/p&gt;
 
-&lt;div class=&quot;footnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot;&gt;
-      &lt;p&gt;From what I could tell, the connection salt is only a 4 digit number….SUPER STRONG!!!!! (/s). This is known by both parties after the connection is established (pre-auth). &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
 
     &lt;p&gt;&lt;a href=&quot;http://kn0.ninja/blog/postgresql-pass-the-hashed-hash/&quot;&gt;PostgreSQL: Pass the Hashed Hash&lt;/a&gt; was originally published by Trenton Ivey at &lt;a href=&quot;http://kn0.ninja&quot;&gt;&lt;/a&gt; on March 03, 2015.&lt;/p&gt;
   </content>
