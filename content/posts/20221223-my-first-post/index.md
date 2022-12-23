@@ -1,11 +1,11 @@
 ---
 title: "My First Post (here)"
 date: 2022-12-23T15:46:41-06:00
-draft: true
+draft: false
 toc: false
 images:
 tags:
-  - untagged
+  - status
 ---
 
 ## Reset
